@@ -1,3 +1,7 @@
+
+header .text-center{
+    animation: appear 1s ease-in-out;
+}
 header h1{
     color:white;
     text-shadow: 8px 0px 10px black;
@@ -17,6 +21,10 @@ header img{
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 90%);
 }
 
+a:hover{
+    animation: pulse 5s ease-in-out infinite;
+}
+
 main h2{
     font-size: 35px;
 }
@@ -25,32 +33,77 @@ main .texto{
     background-color: rgb(230, 230, 230);
     padding: 30px;
     border-radius: 15px;
-    transition: .50s
+
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
 }
 
 main .texto:hover{
     background-color: rgb(187, 186, 186);
 }
 
-/* main .subtitulo-ln{
-    all:unset;
-    font-size: 20px;
-}
-main .subtitulo-ln:hover{
-    all:unset;
-    font-size: 20px;
-}
-
-main .subtitulo-ln{
-    all:unset;
-    font-size: 20px;
-} */
 
 main ul{
     padding: 30px;
     background-color: rgb(230, 230, 230);
     border-radius: 15px;
 }
+
+
+.card-body{
+    width: 100%;
+    background-color: rgb(230, 230, 230)
+}
+
+.card{
+    transition: 0.5s;
+    animation: appear 1s ease-in-out;
+      animation-timeline: view();
+      animation-range: entry 0;
+}
+
+.card:hover{
+    transform: scale(1.20);
+    z-index: 1;
+}
+.card-body:hover{
+    background-color: rgb(187, 186, 186);
+}
+
+.card i{
+    font-size: 50px;
+}
+.card h3{
+    font-size: 13px;
+}   
+
+
+/* animações */
+
+@keyframes appear{
+    0%{
+        opacity: 0;
+        scale: 0.5;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes pulse{
+    0%, 100% {
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.03);
+        box-shadow: 3px 8px 10px black;
+
+    }
+}
+
+/* configuracao de responsividade  para textos grandes */
 
 @media(max-width: 360px){
     
