@@ -210,7 +210,7 @@ require 'config/connection.php'
                     while($mostra = $puxa->fetch_object()){
                         echo"
                             <div class='col-lg-4 my-5'>
-                                <div class='card'>
+                                <div class='card cardProject' onclick='knowMore(this)' data-description='$mostra->projetos_descricao'>
                                     <img src='assets/img/$mostra->projetos_imagem' class='img-project'alt=''>
                                         <div class='card-body'>
                                             <h3 class='card-title'>$mostra->projetos_titulo</h3>
@@ -280,6 +280,36 @@ require 'config/connection.php'
             </div>
         </div>
     </footer>
+
+    <dialog id='knowMore'>
+        <button class='btn btn-dark' id='CloseKnowMore' onclick='CloseKnowMore()'>Fechar</button>
+        <h2 class='pb-4 pt-1' id='TitleKnowMore'>
+            TÍTULO DO PROJETO
+        </h2>
+        <img src="" id='ImgKnowMore' alt="IMAGEM DO PROJETO">
+        <p id='DescriptionKnowMore'>
+            DESCRIÇÃO DO PROJETO
+        </p>
+    </dialog>
+
+    <script>
+        const dialog = document.getElementById("knowMore");
+        const title = document.getElementById("TitleKnowMore");
+        const description = document.getElementById("DescriptionKnowMore");
+        const image = document.getElementById("ImgKnowMore");
+        const close = documente.getElementById("CloseKnowMore")
+
+        function knowMore(cardProject){
+            title.textContent = cardProject.querySelector(".card-title").textContent;
+            description.textContext = cardProject.dataset.description;
+            image.src = cardProject.querySelector("img").src;
+            dialog.showModal();
+        }
+        function CloseKnowMore(){
+            dialog.close();
+        }
+
+    </script>
 
 </body>
 </html>

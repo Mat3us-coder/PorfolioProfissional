@@ -116,6 +116,9 @@ a.contact-button:hover{
     color: white;
     transform: scale(1.20);
 }
+dialog{
+    animation: appear 0.30s ease-in-out;
+}
 
 /* animações */
 
