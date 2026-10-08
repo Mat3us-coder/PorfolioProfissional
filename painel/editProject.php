@@ -2,30 +2,37 @@
     include('../config/loginVerify.php');
     include('../config/connection.php');
 
+    if(!isset($_GET['projetos_id'])){
+        header('location: painel.php');
+        exit;
+    }
+    $id = $_GET['projetos_id'];
 
-    if(isset($_POST['enviar'])){
+    $query= $mysqli->query("SELECT * FROM projetos WHERE projetos_id = '$id'");
+    $mostra = $query->fetch_object();
+
+    if(isset($_POST['atualizar'])){
         $titulo    = $_POST['titulo'];
         $descricao = $_POST['descricao'];
         $resumo    = $_POST['resumo'];
+        $imagem    = $mostra->projetos_imagem;
 
         if(!empty($_FILES['imagem']['name'])){
-            $UploadFoto = md5($_FILES['imagem']['name'].date('sihdmY'). ".jpg");
+            $imagem = $UploadFoto = md5($_FILES['imagem']['name'].date('sihdmY'). ".jpg");
             $caminho    = "../assets/img/";
 
             move_uploaded_file($_FILES['imagem']['tmp_name'], $caminho.$UploadFoto);
-            $insere = $mysqli->query("INSERT INTO projetos(projetos_titulo, projetos_descricao, projetos_resumo, projetos_imagem)
-            VALUES(
-                '$titulo',
-                '$descricao',
-                '$resumo',
-                '$UploadFoto'
-            )");
-            if($insere){
+            $mysqli->query("UPDATE projetos SET
+                projetos_titulo='$titulo',
+                projetos_descricao='$descricao',
+                projetos_resumo='$resumo',
+                projetos_imagem='$imagem'
+                WHERE projetos_id= '$id'");
+
                 header('Location:../index.php');
-                exit;
-            };
-        };
-    };
+            exit;
+        }
+    }
 
 
 ?>
@@ -50,13 +57,12 @@
                 <div class="col-lg-10">
                      <form action="" class="bg-light p-5 border round-5" method="post" enctype="multipart/form-data">        
                         <h1>Criar Projeto</h1>
-                        <input type="text" class="mb-2 w-100" name="titulo" placeholder="Título" id=""><br>
-                        <textarea name="descricao" class="mb-2 w-100" id="" placeholder="Descrição"></textarea><br>
-                        <input type="text" class="mb-2 w-100" class="mb-2" name="resumo" placeholder="Resumo"><br>
+                        <input type="text" class="mb-2 w-100" name="titulo" placeholder="Título" value="<?= $mostra->projetos_titulo ?>" id=""><br>
+                        <textarea name="descricao" class="mb-2 w-100" id="" placeholder="Descrição" value="<?= $mostra->projetos_descricao ?>"></textarea><br>
+                        <input type="text" class="mb-2 w-100" class="mb-2" name="resumo" placeholder="Resumo" value="<?= $mostra->projetos_resumo ?>"><br>
                         <label for="formFile">Imagem</label>
                         <input class="form-control mb-2 w-100" type="file" class="mb-2" name="imagem" id="formFile"><br>
-                        <input type="submit" value="enviar" name="enviar"><br>
-                        <input type="submit" value="previa">
+                        <input type="submit" value="enviar" name="atualizar"><br>
                     </form>
                 </div>
             </div>

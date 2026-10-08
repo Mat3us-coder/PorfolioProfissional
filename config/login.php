@@ -11,10 +11,10 @@
             die("Erro na query: ". $mysqli->error);
         }
         if($query->num_rows > 0){
-            $usuario          = $query->fetch_object();
-            $_SESSION['id']   = $usuario->adm_id;
+            $usuario= $query->fetch_object();
+            $_SESSION['id']= $usuario->adm_id;
             if(isset($_POST['lembrar'])){
-                setcookie('lembrar', $usuario->adm_id, time() + 60*60*24*30);
+                setcookie('lembrar', $usuario->adm_id, time() + 60*60*24*30, "/");
             };
             header("Location: ../index.php");
             exit;
