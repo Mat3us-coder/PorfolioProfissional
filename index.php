@@ -17,7 +17,33 @@ require 'config/connection.php'
 </head>
 
 <body>
-    
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark py-0">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mateus Ferreira Dias</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="Quem sou eu" href="#main">Quem sou eu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="Conhecimentos" href="#knowledge">Conhecimentos</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="Projetos" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="Contatos" href="#talktome">Contatos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
     <header class="hero" id="header">
 
         <div class="d-flex justify-content-center align-items-center vh-100 overflow-hidden">
@@ -192,7 +218,7 @@ require 'config/connection.php'
 
         </article>
 
-        <article>
+        <article id="projects">
         <div class="container">
 
             <div class="row text-center my-5">
@@ -306,6 +332,7 @@ require 'config/connection.php'
         }
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 </html>
