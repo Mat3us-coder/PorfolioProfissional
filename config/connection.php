@@ -1,10 +1,9 @@
 <?php
-    require 'env.php';
 
-    $host      = "HOST";
+    $host      = "LOCALHOST";
     $user      = "ROOT";
-    $password  = "sua senha do banco aqui";
-    $database  = "nome do seu banco";
+    $password  = "";
+    $database  = "portfolio";
 
     $mysqli= new mysqli($host, $user, $password, $database);
 ?>
