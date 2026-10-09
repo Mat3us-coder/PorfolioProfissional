@@ -56,7 +56,6 @@
                         <label for="formFile">Imagem</label>
                         <input class="form-control mb-2 w-100" type="file" class="mb-2" name="imagem" id="formFile"><br>
                         <input type="submit" value="enviar" name="enviar"><br>
-                        <input type="submit" value="previa">
                     </form>
                 </div>
             </div>

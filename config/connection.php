@@ -1,9 +1,9 @@
 <?php
+$host= "";
+$usuario = "";
+$senha = "";
+$banco = "";
 
-    $host      = "localhost";
-    $user      = "root";
-    $password  = "";
-    $database  = "portfolio";
+$mysqli = new mysqli($host, $usuario, $senha, $banco);
 
-    $mysqli= new mysqli($host, $user, $password, $database);
 ?>

@@ -47,7 +47,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet"></link>
-    <title>Cadastrar Projeto Novo</title>
+    <title>Editar Projeto</title>
 </head>
 <body>
 
@@ -56,9 +56,9 @@
             <div class="row">
                 <div class="col-lg-10">
                      <form action="" class="bg-light p-5 border round-5" method="post" enctype="multipart/form-data">        
-                        <h1>Criar Projeto</h1>
+                        <h1>Editar Projeto</h1>
                         <input type="text" class="mb-2 w-100" name="titulo" placeholder="Título" value="<?= $mostra->projetos_titulo ?>" id=""><br>
-                        <textarea name="descricao" class="mb-2 w-100" id="" placeholder="Descrição" value="<?= $mostra->projetos_descricao ?>"></textarea><br>
+                        <textarea name="descricao" class="mb-2 w-100" id="" placeholder="Descrição"><?= $mostra->projetos_descricao ?></textarea><br>
                         <input type="text" class="mb-2 w-100" class="mb-2" name="resumo" placeholder="Resumo" value="<?= $mostra->projetos_resumo ?>"><br>
                         <label for="formFile">Imagem</label>
                         <input class="form-control mb-2 w-100" type="file" class="mb-2" name="imagem" id="formFile"><br>

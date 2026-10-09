@@ -60,7 +60,7 @@ require 'config/connection.php'
                     </button>
                 </a>
 
-                <a href="assets/cv/curriculo.pdf" download="curriculo-mateusfdias.pdf">
+                <a href="assets/cv/Curriculo.pdf" aria-label="baixar meu curriculo" download="curriculo-mateusfdias.pdf">
                     <button class="btn btn-dark">
                         Baixar Currículo
                     </button>

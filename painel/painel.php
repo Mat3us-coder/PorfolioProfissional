@@ -1,5 +1,6 @@
 <?php
-    require __DIR__ . "\..\config\connection.php";
+    require __DIR__ . "/../config/connection.php";
+    include('../config/loginVerify.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
