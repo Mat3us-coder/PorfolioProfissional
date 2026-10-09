@@ -5,7 +5,7 @@ require 'config/connection.php'
 ?>
 
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,13 +22,13 @@ require 'config/connection.php'
 
         <div class="d-flex justify-content-center align-items-center vh-100 overflow-hidden">
 
-            <img src="assets/img/background.jpeg" class="w-100 h-100 z-n1 object-fit-cover" alt="">
+            <img src="assets/img/background.webp" class="w-100 h-100 z-n1 object-fit-cover" alt="Imagem de fundo da página inicial" loading="lazy">
             <div class="overlay w-100 h-100 position-absolute z-0" aria-hidden="true"></div>
 
             <div class="text-center z-1 position-absolute">
                 <h1>Mateus Ferreira Dias</h1>
                 <p>Criador de sistemas Web, Mobile e Redes</p>
-                <a href="#main">
+                <a aria-label="Conheça mais o meu trabalho." href="#main">
                     <button class="btn btn-dark">
                         Saiba mais do meu trabalho
                     </button>
@@ -211,7 +211,7 @@ require 'config/connection.php'
                         echo"
                             <div class='col-lg-4 my-5'>
                                 <div class='card cardProject' onclick='knowMore(this)' data-description='$mostra->projetos_descricao'>
-                                    <img src='assets/img/$mostra->projetos_imagem' class='img-project'alt=''>
+                                    <img src='assets/img/$mostra->projetos_imagem' class='img-project'alt='Imagem de prévia do projeto' loading='lazy'>
                                         <div class='card-body'>
                                             <h3 class='card-title'>$mostra->projetos_titulo</h3>
                                             <p class='card-text'>$mostra->projetos_resumo</p>
@@ -234,25 +234,25 @@ require 'config/connection.php'
                         <form class="my-5" action="" class="text-center" method="post">
                             <div class="mb-3">
                                 <label for="nome" class="text-justify">Insira seu Nome</label><br>
-                                <input type="text" class="w-100 border-bottom border-info border-3" style="" name="nome" id="nome">
+                                <input type="text" class="w-100 border-bottom border-info border-3" name="nome" id="nome">
                             </div> 
                             <div class="mb-3">
-                                <label for="nome">Insira seu Email</label><br>
+                                <label for="email">Insira seu Email</label><br>
                                 <input type="email" class="w-100 border-bottom border-info border-3" name="email" id="email">
                             </div>
                             <div class="mb-3">
-                                <label for="nome">Sua mensagem</label><br>
-                                <textarea name="mensagem" class="w-100 border-bottom border-info border-3" id="mensagem"></textarea>
+                                <label for="mensagem">Sua mensagem</label><br>
+                                <textarea name="mensagem" class="w-100 border-bottom border-info border-3" title="Insira sua mensagem" id="mensagem"></textarea>
                             </div>
                             <input type="submit" class="btn btn-dark" value="enviar" name="enviar">
                         </form>
                     </div>
                     <div class="text-center mt-5">
                         <h2 class="mb-5">Redes Sociais</h2>
-                        <a class="contact-button" href="https://github.com/Mat3us-coder" target="_blank">
+                        <a class="contact-button" href="https://github.com/Mat3us-coder" aria-label="Link para meu perfil no GitHub." target="_blank">
                             <i class="fa-brands fa-github"></i>
                         </a>
-                        <a class="contact-button" href="https://www.linkedin.com/in/mateus-ferreira-dias-5a839739b" target="_blank">
+                        <a class="contact-button" href="https://www.linkedin.com/in/mateus-ferreira-dias-5a839739b" aria-label="Link para meu perfil no LinkedIn." target="_blank">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
                     </div>
@@ -281,15 +281,11 @@ require 'config/connection.php'
         </div>
     </footer>
 
-    <dialog id='knowMore'>
+    <dialog id='knowMore' class="border rounded-5">
         <button class='btn btn-dark' id='CloseKnowMore' onclick='CloseKnowMore()'>Fechar</button>
-        <h2 class='pb-4 pt-1' id='TitleKnowMore'>
-            TÍTULO DO PROJETO
-        </h2>
-        <img src="" id='ImgKnowMore' alt="IMAGEM DO PROJETO">
-        <p id='DescriptionKnowMore'>
-            DESCRIÇÃO DO PROJETO
-        </p>
+        <h2 class='pb-4 pt-1' id='TitleKnowMore'></h2>
+        <img src="" id='ImgKnowMore' alt="imagem expandida do projeto">
+        <p id='DescriptionKnowMore'></p>
     </dialog>
 
     <script>
@@ -301,7 +297,7 @@ require 'config/connection.php'
 
         function knowMore(cardProject){
             title.textContent = cardProject.querySelector(".card-title").textContent;
-            description.textContext = cardProject.dataset.description;
+            description.textContent = cardProject.dataset.description;
             image.src = cardProject.querySelector("img").src;
             dialog.showModal();
         }
