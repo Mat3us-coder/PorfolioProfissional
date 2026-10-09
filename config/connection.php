@@ -1,7 +1,7 @@
 <?php
 
-    $host      = "LOCALHOST";
-    $user      = "ROOT";
+    $host      = "localhost";
+    $user      = "root";
     $password  = "";
     $database  = "portfolio";
 
