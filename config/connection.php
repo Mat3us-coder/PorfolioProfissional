@@ -1,10 +1,10 @@
 <?php
     require 'env.php';
 
-    $host      = $_ENV['HOST'];
-    $user      = $_ENV['USER'];
-    $password  = $_ENV['PASSWORD'];
-    $database  = $_ENV['DATABASE'];
+    $host      = "HOST";
+    $user      = "ROOT";
+    $password  = "sua senha do banco aqui";
+    $database  = "nome do seu banco";
 
     $mysqli= new mysqli($host, $user, $password, $database);
 ?>

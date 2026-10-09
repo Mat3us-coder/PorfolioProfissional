@@ -15,8 +15,8 @@ $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host       = 'smtp.gmail.com';
 $mail->SMTPAuth   = true;
-$mail->Username   = $_ENV['MAILUSERNAME'];
-$mail->Password   = $_ENV['MAILPASSWORD'];
+$mail->Username   = "seu email aqui"; 
+$mail->Password   = "sua app password aqui";
 $mail->SMTPSecure = 'ssl';
 $mail->Port       = 465;
 
